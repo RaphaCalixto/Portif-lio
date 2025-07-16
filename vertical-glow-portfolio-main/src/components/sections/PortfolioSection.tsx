@@ -47,13 +47,13 @@ const PortfolioSection = () => {
     },
     {
       id: 5,
-      title: 'Weather App',
-      description: 'Aplicativo de previsão do tempo com geolocalização e notificações push.',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop',
-      categories: ['mobile'],
-      technologies: ['Flutter', 'Dart', 'OpenWeather API', 'Firebase'],
-      liveUrl: '#',
-      githubUrl: '#'
+      title: 'Hotel Rio de Janeiro',
+      description: 'Projeto de um hotel para o Rio de Janeiro',
+      image: 'https://i.imgur.com/YnhGY88.jpeg',
+      categories: ['web'],
+      technologies: ['React', 'TypeScript', 'Radix UI', 'Tailwind CSS', 'shadcn/ui', 'NodeJs'],
+      liveUrl: 'https://riode-janeiro-ivory.vercel.app/',
+      githubUrl: 'https://github.com/RaphaCalixto/RiodeJaneiro'
     },
     {
       id: 6,
