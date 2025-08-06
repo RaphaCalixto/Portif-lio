@@ -19,8 +19,8 @@ const PortfolioSection = () => {
       id: 2,
       title: 'Poupe Bem',
       description: 'Sistema moderno para controle financeiro pessoal, permitindo o acompanhamento de receitas, despesas, metas e relatórios de forma simples e intuitiva.',
-      image: 'https://i.imgur.com/rfnPwOE.png',
-      categories: ['web', 'backend'],
+      image: 'https://i.imgur.com/MrKhv9d.png',
+      categories: ['web', 'mobile', 'backend'],
       technologies: ['Next.js', 'React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'Vite', 'shadcn-ui', 'PostgreSQL'],
       liveUrl: 'https://poupe-bem.vercel.app/',
       githubUrl: 'https://github.com/RaphaCalixto/poupe-bem'
