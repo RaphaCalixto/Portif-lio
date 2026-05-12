@@ -7,12 +7,12 @@ const PortfolioSection = () => {
   const projects = [
     {
       id: 1,
-      title: 'Dashboard de Produtividade e Relaxamento',
+      title: 'Everest',
       description: 'Uma aplicação web intuitiva, projetada para ajudar os usuários a gerenciar tarefas e encontrar momentos de calma, combinando ferramentas de produtividade com recursos de relaxamento.',
-      image: 'https://camo.githubusercontent.com/67b5165acab7cc8f31e2b5ef3c103f3d662cd4a9c31149c7de486fa17f5ecdae/68747470733a2f2f692e696d6775722e636f6d2f5a4b714a7954322e6a706567',
+      image: 'https://i.imgur.com/Drtby6o.jpeg',
       categories: ['web'],
-      technologies: ['Next.js', 'React', 'TypeScript', 'Node.js', 'Tailwind CSS'],
-      liveUrl: 'https://v0-relaxamento-dashboard.vercel.app',
+      technologies: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'Vite', 'shadcn-ui'],
+      liveUrl: 'https://everestclimatizacao.com.br/',
       githubUrl: 'https://github.com/RaphaCalixto/Dashboard-Relaxamento'
     },
     {
@@ -22,17 +22,17 @@ const PortfolioSection = () => {
       image: 'https://i.imgur.com/MrKhv9d.png',
       categories: ['web', 'mobile', 'backend'],
       technologies: ['Next.js', 'React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'Vite', 'shadcn-ui', 'PostgreSQL'],
-      liveUrl: 'https://poupe-bem.vercel.app/',
+      liveUrl: 'https://poupe-bem-two.vercel.app/',
       githubUrl: 'https://github.com/RaphaCalixto/poupe-bem'
     },
     {
       id: 3,
-      title: 'SPA',
+      title: 'Inovative',
       description: 'Uma landing page elegante e responsiva para um SPA, desenvolvida para proporcionar uma experiência de usuário relaxante e informativa, com foco em design moderno e performance.',
-      image: 'https://camo.githubusercontent.com/1f421bbaddab1189849ab2c617d18e7796f2b278b0a63f80bf55923bd714ffb5/68747470733a2f2f692e696d6775722e636f6d2f707946654645582e706e67',
+      image: 'https://i.imgur.com/9F6tA3o.jpeg',
       categories: ['web'],
-      technologies: ['React', 'JavaScript', 'HTML', 'CSS'],
-      liveUrl: 'https://glamourous-spa.vercel.app/',
+      technologies: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'Vite', 'shadcn-ui'],
+      liveUrl: 'https://inovativesolucoes.com.br/',
       githubUrl: 'https://github.com/RaphaCalixto/Glamourous-SPA'
     },
     {
@@ -42,7 +42,7 @@ const PortfolioSection = () => {
       image: 'https://i.imgur.com/Ogsjwry.png',
       categories: ['web', 'backend'],
       technologies: ['Wordpress', 'Vtex', 'JavaScript', 'CSS', 'PHP', 'Google Analytics'],
-      liveUrl: '#',
+      liveUrl: 'https://www.elleetlui.com.br/',
       githubUrl: '#'
     },
     {
@@ -62,7 +62,7 @@ const PortfolioSection = () => {
       image: 'https://i.imgur.com/R5jXbQe.jpeg',
       categories: ['web', 'backend'],
       technologies: ['Wordpress', 'Elementor', 'JavaScript', 'React', 'CSS', 'PHP', 'Google Ads', 'Google Analytics'],
-      liveUrl: '#',
+      liveUrl: 'https://inovativesolucoes.com.br/',
       githubUrl: '#'
     }
   ];
