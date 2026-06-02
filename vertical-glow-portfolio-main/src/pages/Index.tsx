@@ -41,7 +41,7 @@ const Index = () => {
         <Sidebar activeSection={activeSection} onSectionClick={setActiveSection} />
         <ScrollToTop />
         
-        <main className="ml-20 lg:ml-64">
+        <main>
           <HeroSection />
           <AboutSection />
           <ServicesSection />
