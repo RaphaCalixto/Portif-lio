@@ -7,6 +7,76 @@ const PortfolioSection = () => {
   const projects = [
     {
       id: 1,
+      title: 'Clima Global 3D',
+      description: 'Dashboard interativo de clima mundial em tempo real com visualização 3D de globo terrestre, dados meteorológicos ao vivo e busca dinâmica.',
+      image: 'https://raw.githubusercontent.com/RaphaCalixto/Clima-mundial-tempo-real/main/src/assets/hero.png',
+      categories: ['web'],
+      technologies: ['React', 'TypeScript', 'Three.js', 'react-globe.gl', 'Tailwind CSS', 'Open-Meteo API'],
+      liveUrl: 'https://clima-mundial-tempo-real.vercel.app/',
+      githubUrl: 'https://github.com/RaphaCalixto/Clima-mundial-tempo-real'
+    },
+    {
+      id: 2,
+      title: 'Miyazaki Hayao',
+      description: 'Experiência web imersiva dedicada à vida, trajetória e obras-primas de Hayao Miyazaki e do Studio Ghibli, com animações e galeria de arte.',
+      image: 'https://raw.githubusercontent.com/RaphaCalixto/Miyazaki-Hayao/main/public/images/miyazaki-hero-watercolor.jpg',
+      categories: ['web'],
+      technologies: ['React', 'TypeScript', 'Framer Motion', 'Tailwind CSS', 'Lucide React'],
+      liveUrl: 'https://miyazaki-hayao.vercel.app/',
+      githubUrl: 'https://github.com/RaphaCalixto/Miyazaki-Hayao'
+    },
+    {
+      id: 3,
+      title: 'Beautiful',
+      description: 'E-commerce e vitrine de cosméticos e skincare de luxo, com IA de tons, cards flutuantes interativos e animações de alta performance.',
+      image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800',
+      categories: ['web'],
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Lenis'],
+      liveUrl: 'https://beautiful-delta-tan.vercel.app/',
+      githubUrl: 'https://github.com/RaphaCalixto/Beautiful'
+    },
+    {
+      id: 4,
+      title: 'NEXUS',
+      description: 'Plataforma interativa futurista com transições fluidas entre seções e efeitos visuais 3D de alta fidelidade.',
+      image: 'https://raw.githubusercontent.com/RaphaCalixto/NEXUS/main/public/assets/images/holographic_dashboard.jpg',
+      categories: ['web'],
+      technologies: ['React', 'Three.js', 'Vite', 'Lucide React', 'CSS3'],
+      liveUrl: 'https://nexus-theta-roan.vercel.app/',
+      githubUrl: 'https://github.com/RaphaCalixto/NEXUS'
+    },
+    {
+      id: 5,
+      title: 'PAYROT',
+      description: 'Plataforma global de pagamentos e transferências internacionais sem fronteiras, com interface moderna e recursos de segurança.',
+      image: 'https://raw.githubusercontent.com/RaphaCalixto/PAYROT/main/src/assets/hero.png',
+      categories: ['web', 'backend'],
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Lucide React'],
+      liveUrl: 'https://payrot-rho.vercel.app/',
+      githubUrl: 'https://github.com/RaphaCalixto/PAYROT'
+    },
+    {
+      id: 6,
+      title: 'Nutri',
+      description: 'Landing page premium para consultoria nutricional, com apresentação de especialidades, metodologia de atendimento e depoimentos.',
+      image: 'https://raw.githubusercontent.com/RaphaCalixto/Nutri/main/public/lais-leal.jpg',
+      categories: ['web'],
+      technologies: ['React', 'Tailwind CSS', 'Framer Motion', 'Lucide React'],
+      liveUrl: 'https://github.com/RaphaCalixto/Nutri',
+      githubUrl: 'https://github.com/RaphaCalixto/Nutri'
+    },
+    {
+      id: 7,
+      title: 'Advogada Brenda Pitner',
+      description: 'Website profissional para advocacia especializada em Propriedade Intelectual, Registro de Marcas e Patentes no INPI.',
+      image: 'https://raw.githubusercontent.com/RaphaCalixto/Advogada/main/src/assets/hero.png',
+      categories: ['web'],
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Lucide React'],
+      liveUrl: 'https://advogada-sandy.vercel.app/',
+      githubUrl: 'https://github.com/RaphaCalixto/Advogada'
+    },
+    {
+      id: 8,
       title: 'Everest',
       description: 'Uma aplicação web intuitiva, projetada para ajudar os usuários a gerenciar tarefas e encontrar momentos de calma, combinando ferramentas de produtividade com recursos de relaxamento.',
       image: 'https://i.imgur.com/Drtby6o.jpeg',
@@ -16,7 +86,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Dashboard-Relaxamento'
     },
     {
-      id: 2,
+      id: 9,
       title: 'Poupe Bem',
       description: 'Sistema moderno para controle financeiro pessoal, permitindo o acompanhamento de receitas, despesas, metas e relatórios de forma simples e intuitiva.',
       image: 'https://i.imgur.com/MrKhv9d.png',
@@ -26,7 +96,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/poupe-bem'
     },
     {
-      id: 3,
+      id: 10,
       title: 'Inovative',
       description: 'Uma landing page elegante e responsiva para um SPA, desenvolvida para proporcionar uma experiência de usuário relaxante e informativa, com foco em design moderno e performance.',
       image: 'https://i.imgur.com/9F6tA3o.jpeg',
@@ -36,7 +106,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Glamourous-SPA'
     },
     {
-      id: 4,
+      id: 11,
       title: 'Elle et Lui',
       description: 'E-commerce de roupas masculinas com foco em moda, experiência do usuário e performance.',
       image: 'https://i.imgur.com/Ogsjwry.png',
@@ -46,7 +116,7 @@ const PortfolioSection = () => {
       githubUrl: '#'
     },
     {
-      id: 5,
+      id: 12,
       title: 'Hotel Rio de Janeiro',
       description: 'Projeto de um hotel para o Rio de Janeiro',
       image: 'https://i.imgur.com/YnhGY88.jpeg',
@@ -56,8 +126,8 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/RiodeJaneiro'
     },
     {
-      id: 6,
-      title: 'Inovative',
+      id: 13,
+      title: 'Inovative Automação',
       description: 'Empresa especializada em manutenção de Estação de Recarga, Inversor de Frequência e Painéis Solares.',
       image: 'https://i.imgur.com/R5jXbQe.jpeg',
       categories: ['web', 'backend'],
@@ -121,12 +191,16 @@ const PortfolioSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/80 to-purple-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
                   <a 
                     href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200"
                   >
                     <Eye size={20} className="text-gray-900" />
                   </a>
                   <a 
                     href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200"
                   >
                     <Github size={20} className="text-gray-900" />
@@ -157,6 +231,8 @@ const PortfolioSection = () => {
                 <div className="flex space-x-3">
                   <a 
                     href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg font-medium hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2"
                   >
                     <ExternalLink size={16} />
@@ -164,6 +240,8 @@ const PortfolioSection = () => {
                   </a>
                   <a 
                     href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 py-2 px-4 rounded-lg font-medium hover:bg-gray-300 hover:text-gray-800 dark:hover:bg-white dark:hover:text-gray-900 transition-all duration-200 flex items-center justify-center space-x-2"
                   >
                     <Github size={16} />
