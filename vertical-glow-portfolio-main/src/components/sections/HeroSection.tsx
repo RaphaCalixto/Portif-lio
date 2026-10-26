@@ -147,10 +147,10 @@ const HeroSection = () => {
           </div>
         </div>
         
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 min-h-[120px] sm:min-h-[200px] flex items-center justify-center px-2">
-          <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-4 sm:mb-6 min-h-[120px] sm:min-h-[200px] flex items-center justify-center px-2">
+          <span className="text-gray-900 dark:text-white leading-tight">
             {displayedText}
-            <span className="animate-pulse">|</span>
+            <span className="inline-block w-[3px] sm:w-[4px] h-[0.85em] ml-2 bg-gray-900 dark:bg-white animate-pulse align-middle rounded-full"></span>
           </span>
         </h1>
         
