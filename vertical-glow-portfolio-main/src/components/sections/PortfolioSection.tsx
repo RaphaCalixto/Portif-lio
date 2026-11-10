@@ -7,6 +7,16 @@ const PortfolioSection = () => {
   const projects = [
     {
       id: 1,
+      title: 'NutriPlan Pro',
+      description: 'Sistema completo de gestão nutricional e clínica para nutricionistas (SaaS). Conta com prontuário eletrônico de pacientes, montador inteligente de dietas com tabela TACO & API, agenda de consultas, tabela de alimentos e suporte a PWA.',
+      image: '/projects/nutriplan-pro.png',
+      categories: ['web', 'backend'],
+      technologies: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'Vite', 'Lucide React'],
+      liveUrl: 'https://pacientenutri.com.br/',
+      githubUrl: 'https://github.com/RaphaCalixto/Nutricionista-Dashboard'
+    },
+    {
+      id: 2,
       title: 'Clima Global 3D',
       description: 'Dashboard interativo de clima mundial em tempo real com visualização 3D de globo terrestre, dados meteorológicos ao vivo e busca dinâmica.',
       image: '/projects/clima-global-3d.png',
@@ -16,7 +26,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Clima-mundial-tempo-real'
     },
     {
-      id: 2,
+      id: 3,
       title: 'Miyazaki Hayao',
       description: 'Experiência web imersiva dedicada à vida, trajetória e obras-primas de Hayao Miyazaki e do Studio Ghibli, com animações e galeria de arte.',
       image: '/projects/miyazaki-hayao.png',
@@ -26,7 +36,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Miyazaki-Hayao'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Beautiful',
       description: 'E-commerce e vitrine de cosméticos e skincare de luxo, com IA de tons, cards flutuantes interativos e animações de alta performance.',
       image: '/projects/beautiful.png',
@@ -36,7 +46,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Beautiful'
     },
     {
-      id: 4,
+      id: 5,
       title: 'NEXUS',
       description: 'Plataforma interativa futurista com transições fluidas entre seções e efeitos visuais 3D de alta fidelidade.',
       image: '/projects/nexus.png',
@@ -46,7 +56,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/NEXUS'
     },
     {
-      id: 5,
+      id: 6,
       title: 'PAYROT',
       description: 'Plataforma global de pagamentos e transferências internacionais sem fronteiras, com interface moderna e recursos de segurança.',
       image: '/projects/payrot.png',
@@ -56,7 +66,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/PAYROT'
     },
     {
-      id: 6,
+      id: 7,
       title: 'Nutri — Dra. Laís Leal',
       description: 'Landing page premium para consultoria nutricional clínica e esportiva, com apresentação de metodologia, planos e agendamento.',
       image: '/projects/nutri.png',
@@ -66,7 +76,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Nutri'
     },
     {
-      id: 7,
+      id: 8,
       title: 'Advogada Brenda Pitner',
       description: 'Website profissional para advocacia especializada em Propriedade Intelectual, Registro de Marcas e Patentes no INPI.',
       image: '/projects/advogada.png',
@@ -76,7 +86,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Advogada'
     },
     {
-      id: 8,
+      id: 9,
       title: 'Everest',
       description: 'Uma aplicação web intuitiva, projetada para ajudar os usuários a gerenciar tarefas e encontrar momentos de calma, combinando ferramentas de produtividade com recursos de relaxamento.',
       image: 'https://i.imgur.com/Drtby6o.jpeg',
@@ -86,7 +96,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Dashboard-Relaxamento'
     },
     {
-      id: 9,
+      id: 10,
       title: 'Poupe Bem',
       description: 'Sistema moderno para controle financeiro pessoal, permitindo o acompanhamento de receitas, despesas, metas e relatórios de forma simples e intuitiva.',
       image: 'https://i.imgur.com/MrKhv9d.png',
@@ -96,7 +106,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/poupe-bem'
     },
     {
-      id: 10,
+      id: 11,
       title: 'Inovative',
       description: 'Uma landing page elegante e responsiva para um SPA, desenvolvida para proporcionar uma experiência de usuário relaxante e informativa, com foco em design moderno e performance.',
       image: 'https://i.imgur.com/9F6tA3o.jpeg',
@@ -106,7 +116,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Glamourous-SPA'
     },
     {
-      id: 11,
+      id: 12,
       title: 'Elle et Lui',
       description: 'E-commerce de roupas masculinas com foco em moda, experiência do usuário e performance.',
       image: 'https://i.imgur.com/Ogsjwry.png',
@@ -116,7 +126,7 @@ const PortfolioSection = () => {
       githubUrl: '#'
     },
     {
-      id: 12,
+      id: 13,
       title: 'Hotel Rio de Janeiro',
       description: 'Projeto de um hotel para o Rio de Janeiro',
       image: 'https://i.imgur.com/YnhGY88.jpeg',
@@ -126,7 +136,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/RiodeJaneiro'
     },
     {
-      id: 13,
+      id: 14,
       title: 'Inovative Automação',
       description: 'Empresa especializada em manutenção de Estação de Recarga, Inversor de Frequência e Painéis Solares.',
       image: 'https://i.imgur.com/R5jXbQe.jpeg',
