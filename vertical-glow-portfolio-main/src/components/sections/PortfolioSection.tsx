@@ -7,6 +7,16 @@ const PortfolioSection = () => {
   const projects = [
     {
       id: 1,
+      title: 'CineRapha',
+      description: 'Plataforma desktop e streaming pessoal estilo Netflix para organização e reprodução de filmes, séries e animes direto do disco local, com escaneamento automático de pastas e player integrado.',
+      image: '/projects/cinerapha.jpg',
+      categories: ['web', 'backend'],
+      technologies: ['Electron', 'React', 'Node.js', 'Express', 'Tailwind CSS', 'Vite'],
+      liveUrl: '',
+      githubUrl: 'https://github.com/RaphaCalixto/CineRapha'
+    },
+    {
+      id: 2,
       title: 'M TEC ELETRIC',
       description: 'Landing page de alta conversão para formação completa em Eletricista Predial, Residencial e Refrigeração, com apresentação de módulos, bônus, oferta promocional e suporte via WhatsApp.',
       image: '/projects/m-tec-eletric.jpg',
@@ -16,7 +26,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Vendedor-de-Curso'
     },
     {
-      id: 2,
+      id: 3,
       title: 'Psicóloga Vera Miranda',
       description: 'Landing page profissional para psicoterapia clínica humanizada (online e presencial), com autoavaliação de sintomas, especialidades e agendamento via WhatsApp.',
       image: '/projects/psicologa.jpg',
@@ -26,7 +36,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Psicologa'
     },
     {
-      id: 3,
+      id: 4,
       title: 'NutriPlan Pro',
       description: 'Sistema completo de gestão nutricional e clínica para nutricionistas (SaaS). Conta com prontuário eletrônico de pacientes, montador inteligente de dietas com tabela TACO & API, agenda de consultas, tabela de alimentos e suporte a PWA.',
       image: '/projects/nutriplan-pro.png',
@@ -36,7 +46,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Nutricionista-Dashboard'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Clima Global 3D',
       description: 'Dashboard interativo de clima mundial em tempo real com visualização 3D de globo terrestre, dados meteorológicos ao vivo e busca dinâmica.',
       image: '/projects/clima-global-3d.png',
@@ -46,7 +56,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Clima-mundial-tempo-real'
     },
     {
-      id: 5,
+      id: 6,
       title: 'Miyazaki Hayao',
       description: 'Experiência web imersiva dedicada à vida, trajetória e obras-primas de Hayao Miyazaki e do Studio Ghibli, com animações e galeria de arte.',
       image: '/projects/miyazaki-hayao.png',
@@ -56,7 +66,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Miyazaki-Hayao'
     },
     {
-      id: 6,
+      id: 7,
       title: 'Beautiful',
       description: 'E-commerce e vitrine de cosméticos e skincare de luxo, com IA de tons, cards flutuantes interativos e animações de alta performance.',
       image: '/projects/beautiful.png',
@@ -66,7 +76,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Beautiful'
     },
     {
-      id: 7,
+      id: 8,
       title: 'NEXUS',
       description: 'Plataforma interativa futurista com transições fluidas entre seções e efeitos visuais 3D de alta fidelidade.',
       image: '/projects/nexus.png',
@@ -76,7 +86,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/NEXUS'
     },
     {
-      id: 8,
+      id: 9,
       title: 'PAYROT',
       description: 'Plataforma global de pagamentos e transferências internacionais sem fronteiras, com interface moderna e recursos de segurança.',
       image: '/projects/payrot.png',
@@ -86,7 +96,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/PAYROT'
     },
     {
-      id: 9,
+      id: 10,
       title: 'Nutri — Dra. Laís Leal',
       description: 'Landing page premium para consultoria nutricional clínica e esportiva, com apresentação de metodologia, planos e agendamento.',
       image: '/projects/nutri.png',
@@ -96,7 +106,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Nutri'
     },
     {
-      id: 10,
+      id: 11,
       title: 'Advogada Brenda Pitner',
       description: 'Website profissional para advocacia especializada em Propriedade Intelectual, Registro de Marcas e Patentes no INPI.',
       image: '/projects/advogada.png',
@@ -106,7 +116,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Advogada'
     },
     {
-      id: 11,
+      id: 12,
       title: 'Everest',
       description: 'Uma aplicação web intuitiva, projetada para ajudar os usuários a gerenciar tarefas e encontrar momentos de calma, combinando ferramentas de produtividade com recursos de relaxamento.',
       image: 'https://i.imgur.com/Drtby6o.jpeg',
@@ -116,7 +126,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Dashboard-Relaxamento'
     },
     {
-      id: 12,
+      id: 13,
       title: 'Poupe Bem',
       description: 'Sistema moderno para controle financeiro pessoal, permitindo o acompanhamento de receitas, despesas, metas e relatórios de forma simples e intuitiva.',
       image: 'https://i.imgur.com/MrKhv9d.png',
@@ -126,7 +136,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/poupe-bem'
     },
     {
-      id: 13,
+      id: 14,
       title: 'Inovative',
       description: 'Uma landing page elegante e responsiva para um SPA, desenvolvida para proporcionar uma experiência de usuário relaxante e informativa, com foco em design moderno e performance.',
       image: 'https://i.imgur.com/9F6tA3o.jpeg',
@@ -136,7 +146,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Glamourous-SPA'
     },
     {
-      id: 14,
+      id: 15,
       title: 'Elle et Lui',
       description: 'E-commerce de roupas masculinas com foco em moda, experiência do usuário e performance.',
       image: 'https://i.imgur.com/Ogsjwry.png',
@@ -146,7 +156,7 @@ const PortfolioSection = () => {
       githubUrl: '#'
     },
     {
-      id: 15,
+      id: 16,
       title: 'Hotel Rio de Janeiro',
       description: 'Projeto de um hotel para o Rio de Janeiro',
       image: 'https://i.imgur.com/YnhGY88.jpeg',
@@ -156,7 +166,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/RiodeJaneiro'
     },
     {
-      id: 16,
+      id: 17,
       title: 'Inovative Automação',
       description: 'Empresa especializada em manutenção de Estação de Recarga, Inversor de Frequência e Painéis Solares.',
       image: 'https://i.imgur.com/R5jXbQe.jpeg',
@@ -219,14 +229,16 @@ const PortfolioSection = () => {
                   className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/80 to-purple-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                  <a 
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200"
-                  >
-                    <Eye size={20} className="text-gray-900" />
-                  </a>
+                  {project.liveUrl && (
+                    <a 
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200"
+                    >
+                      <Eye size={20} className="text-gray-900" />
+                    </a>
+                  )}
                   <a 
                     href={project.githubUrl}
                     target="_blank"
@@ -258,16 +270,18 @@ const PortfolioSection = () => {
                   ))}
                 </div>
                 
-                <div className="flex space-x-3">
-                  <a 
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg font-medium hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2"
-                  >
-                    <ExternalLink size={16} />
-                    <span>Ver Projeto</span>
-                  </a>
+                <div className="flex gap-3">
+                  {project.liveUrl && (
+                    <a 
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 px-4 rounded-lg font-medium hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2"
+                    >
+                      <ExternalLink size={16} />
+                      <span>Ver Projeto</span>
+                    </a>
+                  )}
                   <a 
                     href={project.githubUrl}
                     target="_blank"
