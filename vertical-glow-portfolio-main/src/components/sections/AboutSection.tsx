@@ -14,7 +14,7 @@ import {
   Terminal,
   Cpu,
   Layers,
-  CheckCircle2,
+  GraduationCap,
 } from 'lucide-react';
 
 interface SkillItem {
@@ -208,11 +208,23 @@ const AboutSection = () => {
       company: 'Elle et Lui — Rio de Janeiro, RJ',
       current: false,
       highlights: [
-        'Realizei manutenção evolutiva e customizações em 4 projetos de e-commerce (VTEX, WordPress e ZapCommerce), gerenciando assets e rotinas na nuvem AWS.',
-        'Criei templates responsivos de e-mail marketing com foco em entregabilidade e renderização cross-client, impulsionando a taxa de engajamento e conversão de campanhas.',
-        'Colaborei em rotinas de testes de conversão e melhorias visuais para otimização contínua da experiência de navegação do usuário.',
+        'Realizei manutenção evolutiva e customizações em 4 projetos de e-commerce utilizando React na VTEX, PHP no WordPress e ZapCommerce, gerenciando assets na nuvem AWS.',
+        'Criei templates responsivos de e-mail marketing com HTML, CSS e JavaScript, priorizando entregabilidade e renderização cross-client para elevar taxas de conversão.',
+        'Realizei o gerenciamento de sistemas de PDV e colaborei em testes de conversão e melhorias visuais para otimização contínua da experiência do usuário.',
       ],
-      skills: ['VTEX', 'WordPress', 'ZapCommerce', 'AWS', 'HTML5', 'CSS3', 'E-mail Marketing'],
+      skills: [
+        'VTEX',
+        'React',
+        'WordPress',
+        'PHP',
+        'ZapCommerce',
+        'AWS',
+        'HTML5',
+        'CSS3',
+        'JavaScript',
+        'PDV',
+        'E-mail Marketing',
+      ],
     },
     {
       year: 'Jan 2019 — Dez 2019',
@@ -367,7 +379,7 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Core Principles / Pillars (Col 5) */}
+          {/* Core Principles / Pillars + Education (Col 5) */}
           <div className="lg:col-span-5 space-y-4 lg:sticky lg:top-24">
             <div className="flex items-center justify-between mb-8">
               <h3 className="text-xl sm:text-2xl font-bold text-white">
@@ -397,6 +409,26 @@ const AboutSection = () => {
                 </div>
               );
             })}
+
+            {/* Academic Education Card */}
+            <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 transition-all duration-300 flex items-start gap-4 group mt-6">
+              <div className="w-11 h-11 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-300 group-hover:text-emerald-400 group-hover:border-emerald-500/40 transition-all shrink-0">
+                <GraduationCap size={20} />
+              </div>
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <h4 className="text-sm sm:text-base font-bold text-white group-hover:text-emerald-300 transition-colors">
+                    Universidade Veiga de Almeida
+                  </h4>
+                </div>
+                <p className="text-xs sm:text-sm text-zinc-300 font-medium">
+                  Bacharelado em Engenharia da Computação
+                </p>
+                <p className="text-xs text-zinc-500 font-mono mt-1">
+                  Jan 2020 — Ago 2026 (Previsão de Conclusão) • Rio de Janeiro, RJ
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

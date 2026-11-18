@@ -21,3 +21,7 @@
   - Nova navegação em Obsidian com indicador ativo via Framer Motion.
   - Botão de ScrollToTop com hover esmeralda sutil.
 - Validado o build com `npm.cmd run build` com sucesso em 5.72s sem nenhum erro.
+- Atualizado o PDF do currículo (`public/cv.pdf`) com a nova versão enviada pelo usuário.
+- Atualizadas as descrições e habilidades da experiência profissional em `AboutSection.tsx` (incluindo Elle et Lui com React na VTEX, PHP no WordPress e ZapCommerce, e gerenciamento de PDV).
+- Adicionado card de Formação Acadêmica (Bacharelado em Engenharia da Computação - Universidade Veiga de Almeida).
+- Validado novo build e deploy pronto para commit.
