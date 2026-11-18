@@ -39,5 +39,5 @@ Implementar uma identidade visual única e autêntica de Engenharia de Software 
 
 ### Phase 6: Verificação de Build, Teste Visual e Deploy
 - [x] Executar `npm.cmd run build` em `vertical-glow-portfolio-main` para certificar zero erros de compilação TS/Vite.
-- [ ] Commit e Push para `origin master` no GitHub.
-**Status:** in_progress
+- [x] Commit e Push para `origin master` no GitHub.
+**Status:** complete
