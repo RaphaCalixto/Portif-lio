@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import {
   Code,
   Coffee,
@@ -10,6 +11,10 @@ import {
   Workflow,
   ShieldCheck,
   ShoppingBag,
+  Terminal,
+  Cpu,
+  Layers,
+  CheckCircle2,
 } from 'lucide-react';
 
 interface SkillItem {
@@ -69,19 +74,19 @@ const renderSkillIcon = (skill: SkillItem) => {
   const LucideIcon = LUCIDE_SKILL_ICONS[skill.icon];
   if (LucideIcon) {
     return (
-      <LucideIcon className="w-8 h-8 text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-200" />
+      <LucideIcon className="w-7 h-7 text-emerald-400 group-hover:scale-110 transition-transform duration-200" />
     );
   }
 
   const url = ICON_URLS[skill.icon];
   if (url) {
     const invertClass = DARK_INVERT_ICONS.has(skill.icon)
-      ? 'dark:invert dark:brightness-0 dark:contrast-200'
+      ? 'invert brightness-0 contrast-200'
       : '';
-    return <img src={url} alt={skill.name} className={`w-8 h-8 object-contain ${invertClass}`} />;
+    return <img src={url} alt={skill.name} className={`w-7 h-7 object-contain group-hover:scale-110 transition-transform duration-200 ${invertClass}`} />;
   }
 
-  return <span>{skill.icon}</span>;
+  return <span className="font-mono text-sm">{skill.icon}</span>;
 };
 
 const AboutSection = () => {
@@ -89,7 +94,7 @@ const AboutSection = () => {
 
   const skillCategories: SkillCategory[] = [
     {
-      title: 'Front-end',
+      title: 'Front-end Engineering',
       items: [
         { name: 'JavaScript (ES6+)', icon: 'javascript' },
         { name: 'TypeScript', icon: 'typescript' },
@@ -105,7 +110,7 @@ const AboutSection = () => {
       ],
     },
     {
-      title: 'Back-end & Bancos de Dados',
+      title: 'Back-end & Databases',
       items: [
         { name: 'Node.js', icon: 'nodejs' },
         { name: 'PHP', icon: 'php' },
@@ -118,7 +123,7 @@ const AboutSection = () => {
       ],
     },
     {
-      title: 'DevOps, Segurança & Ferramentas',
+      title: 'DevOps, Security & Tools',
       items: [
         { name: 'Docker', icon: 'docker' },
         { name: 'AWS', icon: 'aws' },
@@ -142,9 +147,10 @@ const AboutSection = () => {
 
   const experiences = [
     {
-      year: 'Jan 2024 - Set 2026',
+      year: 'Jan 2024 — Set 2026',
       title: 'Desenvolvedor Full Stack',
       company: 'Inovative — Rio de Janeiro, RJ',
+      current: true,
       highlights: [
         'Desenvolvi e mantive 7 projetos de aplicações web e plataformas interativas utilizando React.js, Vite, Node.js, TypeScript, Tailwind CSS, PHP e APIs RESTful.',
         'Estruturei conteinerização com Docker e pipelines de CI/CD para deploy contínuo, conduzindo rotinas de pentest para mitigação de vulnerabilidades.',
@@ -170,9 +176,10 @@ const AboutSection = () => {
       ],
     },
     {
-      year: 'Jan 2023 - Atual',
+      year: 'Jan 2023 — Atual',
       title: 'Desenvolvedor Full Stack',
       company: 'Projetos Freelance — Rio de Janeiro, RJ',
+      current: false,
       highlights: [
         'Construí mais de 20 projetos de aplicações web (SPA/SSR) com Next.js, React.js, TypeScript, Vite, Tailwind CSS e Shadcn UI, priorizando design responsivo e clean code.',
         'Desenvolvi back-ends modulares em Node.js, PHP e Python, projetando APIs REST e realizando modelagem eficiente em bancos MySQL, PostgreSQL e Oracle.',
@@ -196,9 +203,10 @@ const AboutSection = () => {
       ],
     },
     {
-      year: 'Jan 2021 - Jun 2022',
+      year: 'Jan 2021 — Jun 2022',
       title: 'Desenvolvedor Front-End',
       company: 'Elle et Lui — Rio de Janeiro, RJ',
+      current: false,
       highlights: [
         'Realizei manutenção evolutiva e customizações em 4 projetos de e-commerce (VTEX, WordPress e ZapCommerce), gerenciando assets e rotinas na nuvem AWS.',
         'Criei templates responsivos de e-mail marketing com foco em entregabilidade e renderização cross-client, impulsionando a taxa de engajamento e conversão de campanhas.',
@@ -207,9 +215,10 @@ const AboutSection = () => {
       skills: ['VTEX', 'WordPress', 'ZapCommerce', 'AWS', 'HTML5', 'CSS3', 'E-mail Marketing'],
     },
     {
-      year: 'Jan 2019 - Dez 2019',
+      year: 'Jan 2019 — Dez 2019',
       title: 'Desenvolvedor Full Stack',
       company: 'Lemos de Castro — Rio de Janeiro, RJ',
+      current: false,
       highlights: [
         'Atuei no desenvolvimento de 2 projetos corporativos com interfaces web responsivas em HTML5, CSS3, JavaScript (ES6+), TypeScript e Bootstrap, consumindo APIs RESTful.',
         'Implementei funcionalidades de back-end em PHP e ASP.NET, integrando e manipulando dados estruturados em bases MySQL e Oracle.',
@@ -230,133 +239,123 @@ const AboutSection = () => {
     },
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = document.getElementById('about');
-      if (!section) return;
-
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-      if (scrollPosition >= sectionTop && scrollPosition <= sectionTop + sectionHeight) {
-        const relativePosition = (scrollPosition - sectionTop) / sectionHeight;
-        const experienceIndex = Math.min(
-          Math.floor(relativePosition * experiences.length),
-          experiences.length - 1
-        );
-        setActiveExperience(experienceIndex);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [experiences.length]);
-
   const values = [
     {
       icon: Code,
-      title: 'Código Limpo',
-      description: 'Escrevo código legível, testável e bem documentado',
+      title: 'Clean Architecture & DX',
+      description: 'Código modular, tipagem estrita com TypeScript, arquitetura desacoplada e foco em manutenibilidade a longo prazo.',
     },
     {
-      icon: Lightbulb,
-      title: 'Inovação',
-      description: 'Sempre buscando novas tecnologias e melhores soluções',
+      icon: Cpu,
+      title: 'Alta Performance',
+      description: 'Otimização contínua de Core Web Vitals, SSR/SSG inteligente e redução do payload inicial em produção.',
     },
     {
-      icon: Users,
-      title: 'Colaboração',
-      description: 'Trabalho bem em equipe e valorizo a comunicação',
+      icon: Layers,
+      title: 'Segurança & Resiliência',
+      description: 'Práticas defensivas de código, sanitização de inputs, análise de vulnerabilidades (pentest) e isolamento.',
     },
     {
-      icon: Coffee,
-      title: 'Dedicação',
-      description: 'Apaixonado por programação e sempre aprendendo',
+      icon: Workflow,
+      title: 'Automação & CI/CD',
+      description: 'Pipelines automatizados de testes e deploy contínuo com Docker, n8n e Node-RED para eliminar atritos operacionais.',
     },
   ];
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-800">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-6">
+    <section id="about" className="py-24 bg-zinc-950 text-white relative border-t border-zinc-900">
+      {/* Background Engineering Pattern */}
+      <div 
+        className="absolute inset-0 opacity-15 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#3f3f46 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-6xl">
+        
+        {/* Header */}
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 font-mono text-xs mb-4">
+            <Terminal size={13} />
+            <span>developer.profile --verbose</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
             Sobre Mim
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-zinc-400 font-normal leading-relaxed">
             Desenvolvedor Full Stack com sólida experiência na construção de aplicações web escaláveis, integrando ecossistemas front-end modernos (React.js, Next.js, TypeScript) e serviços back-end (Node.js, PHP, Python). Especialista em integrações de APIs RESTful, automação de processos (n8n, Node-RED) e arquitetura de e-commerces, com foco em desempenho, usabilidade e métricas de conversão.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-              Experiência Profissional
-            </h3>
-            <div className="relative">
-              {/* Linha vertical da timeline */}
-              <div className="absolute left-6 top-0 bottom-0 w-1 bg-gray-300 dark:bg-gray-600 rounded-full overflow-hidden">
-                <div
-                  className="w-full bg-gradient-to-b from-blue-500 to-purple-600 rounded-full transition-all duration-500 ease-out"
-                  style={{
-                    height: `${Math.min(((activeExperience + 1) / experiences.length) * 100, 100)}%`,
-                  }}
-                />
-              </div>
+        {/* Experience Timeline & Core Principles */}
+        <div className="grid lg:grid-cols-12 gap-12 items-start mb-24">
+          
+          {/* Career Timeline (Col 7) */}
+          <div className="lg:col-span-7">
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                <span>Trajetória Profissional</span>
+              </h3>
+              <span className="font-mono text-xs text-zinc-500">git log --experience</span>
+            </div>
 
+            <div className="relative border-l border-zinc-800 ml-3 sm:ml-4 pl-6 sm:pl-8 space-y-10">
               {experiences.map((exp, index) => (
                 <div
                   key={index}
-                  className={`relative flex items-start mb-8 last:mb-0 transition-all duration-500 ${
-                    index <= activeExperience ? 'opacity-100 translate-x-0' : 'opacity-70 translate-x-2'
-                  }`}
+                  className="relative group cursor-pointer"
+                  onClick={() => setActiveExperience(index)}
                 >
-                  {/* Ponto da timeline alinhado a cada experiência */}
-                  <div
-                    className={`absolute left-3.5 top-6 w-6 h-6 rounded-full border-4 border-white dark:border-gray-800 shadow-lg transition-all duration-500 z-10 ${
-                      index === activeExperience
-                        ? 'bg-gradient-to-r from-blue-500 to-purple-600 scale-110'
-                        : index < activeExperience
-                          ? 'bg-blue-500'
-                          : 'bg-gray-300 dark:bg-gray-600'
+                  {/* Circuit Node on Timeline */}
+                  <div 
+                    className={`absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-zinc-950 transition-all duration-300 ${
+                      index === activeExperience 
+                        ? 'bg-emerald-400 ring-4 ring-emerald-500/20 scale-125' 
+                        : 'bg-zinc-700 group-hover:bg-zinc-500'
                     }`}
-                  >
-                    {index === activeExperience && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-ping opacity-75"></div>
-                    )}
-                  </div>
+                  />
 
-                  {/* Conteúdo da experiência */}
-                  <div
-                    className={`ml-16 bg-gray-50 dark:bg-gray-700 p-6 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700/60 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 ${
-                      index === activeExperience ? 'ring-2 ring-blue-500 bg-blue-50 dark:bg-blue-900/20' : ''
-                    }`}
-                  >
-                    <div className="flex items-center mb-2">
-                      <Calendar size={16} className="text-blue-500 mr-2" />
-                      <span className="text-sm font-medium text-blue-600 dark:text-blue-400">
+                  {/* Experience Card */}
+                  <div className={`p-6 rounded-2xl bg-zinc-900/80 border transition-all duration-300 ${
+                    index === activeExperience 
+                      ? 'border-zinc-700 shadow-xl bg-zinc-900' 
+                      : 'border-zinc-800/80 hover:border-zinc-700'
+                  }`}>
+                    {/* Header info */}
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                      <span className="font-mono text-xs text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-md flex items-center gap-1.5">
+                        <Calendar size={12} />
                         {exp.year}
                       </span>
-                    </div>
-                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1 transition-colors duration-300">
-                      {exp.title}
-                    </h4>
-                    <div className="flex items-center mb-3">
-                      <MapPin size={14} className="text-gray-500 mr-1" />
-                      <span className="text-sm text-gray-600 dark:text-gray-300">
+                      <span className="text-zinc-500 font-mono text-[11px] flex items-center gap-1">
+                        <MapPin size={11} />
                         {exp.company}
                       </span>
                     </div>
-                    <ul className="space-y-2 text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4 list-disc pl-4">
-                      {exp.highlights.map((item, itemIndex) => (
-                        <li key={itemIndex}>{item}</li>
+
+                    <h4 className="text-lg font-bold text-white mb-3">
+                      {exp.title}
+                    </h4>
+
+                    {/* Highlights */}
+                    <ul className="space-y-2 mb-4 text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                      {exp.highlights.map((h, hIndex) => (
+                        <li key={hIndex} className="flex items-start gap-2">
+                          <span className="text-emerald-500 font-mono mt-0.5">›</span>
+                          <span>{h}</span>
+                        </li>
                       ))}
                     </ul>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.skills.map((skill, skillIndex) => (
+
+                    {/* Tech Badges */}
+                    <div className="flex flex-wrap gap-1.5 pt-2 border-t border-zinc-800/60">
+                      {exp.skills.map((skill, sIndex) => (
                         <span
-                          key={skillIndex}
-                          className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs rounded-full"
+                          key={sIndex}
+                          className="font-mono text-[10px] px-2 py-0.5 rounded bg-zinc-950 border border-zinc-800 text-zinc-400"
                         >
                           {skill}
                         </span>
@@ -368,27 +367,31 @@ const AboutSection = () => {
             </div>
           </div>
 
-          <div className="space-y-6 lg:sticky lg:top-24">
-            {values.map((value, index) => {
-              const Icon = value.icon;
+          {/* Core Principles / Pillars (Col 5) */}
+          <div className="lg:col-span-5 space-y-4 lg:sticky lg:top-24">
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                Princípios de Engenharia
+              </h3>
+              <span className="font-mono text-xs text-zinc-500">core.values</span>
+            </div>
+
+            {values.map((val, idx) => {
+              const Icon = val.icon;
               return (
                 <div
-                  key={index}
-                  className="flex items-start space-x-4 opacity-0 animate-fade-in"
-                  style={{
-                    animationDelay: `${index * 150}ms`,
-                    animationFillMode: 'forwards',
-                  }}
+                  key={idx}
+                  className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-zinc-700 transition-all duration-300 flex items-start gap-4 group"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 hover:scale-110 transition-transform duration-300">
-                    <Icon size={20} className="text-white" />
+                  <div className="w-11 h-11 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-300 group-hover:text-emerald-400 group-hover:border-emerald-500/40 transition-all shrink-0">
+                    <Icon size={20} />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      {value.title}
+                    <h4 className="text-sm sm:text-base font-bold text-white mb-1 group-hover:text-emerald-300 transition-colors">
+                      {val.title}
                     </h4>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      {value.description}
+                    <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                      {val.description}
                     </p>
                   </div>
                 </div>
@@ -397,30 +400,41 @@ const AboutSection = () => {
           </div>
         </div>
 
-        <div>
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-10 text-center">
-            Ferramentas/Tecnologias
-          </h3>
+        {/* Tools & Stack Matrix */}
+        <div className="pt-8 border-t border-zinc-900">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-1.5 text-zinc-500 font-mono text-xs mb-2">
+              <span className="text-emerald-400">$</span>
+              <span>cat /etc/developer/stack.json</span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-black text-white">
+              Stack & Ecossistema de Ferramentas
+            </h3>
+          </div>
+
           <div className="space-y-10">
             {skillCategories.map((category) => (
-              <div key={category.title}>
-                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4 text-center sm:text-left">
-                  {category.title}
-                </h4>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                  {category.items.map((skill, index) => (
+              <div key={category.title} className="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/80">
+                <div className="flex items-center justify-between mb-5 pb-3 border-b border-zinc-800/60">
+                  <h4 className="text-sm sm:text-base font-mono font-semibold text-zinc-300 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" />
+                    <span>{category.title}</span>
+                  </h4>
+                  <span className="font-mono text-[11px] text-zinc-500">
+                    [{category.items.length} pacotes]
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                  {category.items.map((skill) => (
                     <div
                       key={skill.name}
-                      className="flex flex-col items-center p-4 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:text-white transition-all duration-200 cursor-default group opacity-0 animate-fade-in"
-                      style={{
-                        animationDelay: `${index * 40}ms`,
-                        animationFillMode: 'forwards',
-                      }}
+                      className="flex flex-col items-center justify-center p-3.5 rounded-xl bg-zinc-900/90 border border-zinc-800/80 hover:border-zinc-600 hover:bg-zinc-800 transition-all duration-200 cursor-default group"
                     >
-                      <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-200">
+                      <div className="mb-2 h-8 flex items-center justify-center">
                         {renderSkillIcon(skill)}
                       </div>
-                      <span className="text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-white text-center">
+                      <span className="font-mono text-[11px] text-zinc-400 group-hover:text-white text-center truncate max-w-full">
                         {skill.name}
                       </span>
                     </div>
@@ -430,6 +444,7 @@ const AboutSection = () => {
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );

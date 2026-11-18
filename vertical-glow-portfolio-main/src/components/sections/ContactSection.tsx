@@ -1,39 +1,43 @@
 import React from 'react';
-import { Github, Linkedin, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, MessageCircle, Phone, Terminal, ArrowUpRight } from 'lucide-react';
 
 const ContactSection = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email',
+      protocol: 'smtp / email',
+      title: 'Email Profissional',
       value: 'raphacalixto10@gmail.com',
-      description: 'Me envie uma mensagem por email.',
+      description: 'Canal principal para propostas, documentações e alinhamento de escopo.',
       link: 'mailto:raphacalixto10@gmail.com',
-      action: 'Enviar email'
-    },
-    {
-      icon: Phone,
-      title: 'Telefone',
-      value: '+55 (21) 98775-3982',
-      description: 'Disponível para chamadas e mensagens.',
-      link: 'tel:+5521987753982',
-      action: 'Ligar agora'
+      action: 'Enviar Mensagem'
     },
     {
       icon: MessageCircle,
-      title: 'WhatsApp',
+      protocol: 'instant / whatsapp',
+      title: 'WhatsApp Direto',
       value: '+55 (21) 98775-3982',
-      description: 'Fale comigo diretamente pelo WhatsApp.',
+      description: 'Comunicação rápida para alinhamento e respostas em tempo real.',
       link: 'https://wa.me/5521987753982',
-      action: 'Chamar no WhatsApp'
+      action: 'Iniciar Conversa'
+    },
+    {
+      icon: Phone,
+      protocol: 'voice / call',
+      title: 'Telefone',
+      value: '+55 (21) 98775-3982',
+      description: 'Disponível para reuniões técnicas e chamadas com hora marcada.',
+      link: 'tel:+5521987753982',
+      action: 'Ligar Agora'
     },
     {
       icon: MapPin,
+      protocol: 'geo / location',
       title: 'Localização',
-      value: 'Rio de Janeiro, RJ - Brasil',
-      description: 'Atendimento remoto e disponibilidade para projetos.',
+      value: 'Rio de Janeiro, RJ — Brasil',
+      description: 'Atuação 100% remota com disponibilidade para modelo híbrido ou presencial.',
       link: 'https://www.google.com/maps/search/?api=1&query=Rio+de+Janeiro+RJ+Brasil',
-      action: 'Ver localização'
+      action: 'Visualizar no Maps'
     }
   ];
 
@@ -41,99 +45,139 @@ const ContactSection = () => {
     {
       icon: Github,
       label: 'GitHub',
+      handle: '@RaphaCalixto',
       url: 'https://github.com/RaphaCalixto',
-      color: 'hover:bg-gray-300 dark:hover:bg-black dark:hover:text-white'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
+      handle: 'Raphael Calixto',
       url: 'https://www.linkedin.com/in/raphael-roberto-calixto-10a204234/',
-      color: 'hover:bg-blue-200 dark:hover:bg-blue-600 dark:hover:text-white'
     },
     {
       icon: Mail,
       label: 'Email',
+      handle: 'raphacalixto10@gmail.com',
       url: 'mailto:raphacalixto10@gmail.com',
-      color: 'hover:bg-purple-200 dark:hover:bg-purple-600 dark:hover:text-white'
     },
     {
       icon: MessageCircle,
       label: 'WhatsApp',
+      handle: '(21) 98775-3982',
       url: 'https://wa.me/5521987753982',
-      color: 'hover:bg-green-200 dark:hover:bg-green-600 dark:hover:text-white'
     }
   ];
 
   return (
-    <section id="contact" className="py-12 sm:py-20 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-4 sm:mb-6">
-            Entre em Contato
+    <section id="contact" className="py-24 bg-zinc-950 text-white relative border-t border-zinc-900">
+      {/* Background Engineering Pattern */}
+      <div 
+        className="absolute inset-0 opacity-15 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#3f3f46 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-5xl">
+        
+        {/* Section Header */}
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 font-mono text-xs mb-4">
+            <Terminal size={13} />
+            <span>communication.channels --open</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
+            Vamos Construir Juntos?
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
-            Vamos conversar sobre projetos, oportunidades ou colaborações.
+          <p className="text-base sm:text-lg text-zinc-400 font-normal leading-relaxed">
+            Seja para uma nova vaga, desenvolvimento de um projeto do zero ou otimização de uma arquitetura existente, estou à disposição para conversar.
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-10">
-            {contactInfo.map((info, index) => {
-              const Icon = info.icon;
+        {/* Contact Grid */}
+        <div className="grid sm:grid-cols-2 gap-5 mb-10">
+          {contactInfo.map((info, index) => {
+            const Icon = info.icon;
+            return (
+              <a
+                key={index}
+                href={info.link}
+                target={info.link.startsWith('http') ? '_blank' : undefined}
+                rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="group flex flex-col justify-between rounded-2xl border border-zinc-800 bg-zinc-900/80 p-6 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-300 group-hover:text-emerald-400 group-hover:border-emerald-500/40 transition-colors">
+                      <Icon size={20} />
+                    </div>
+                    <span className="font-mono text-[10px] text-zinc-500">
+                      [{info.protocol}]
+                    </span>
+                  </div>
+
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-1 group-hover:text-emerald-300 transition-colors">
+                    {info.title}
+                  </h3>
+                  
+                  <p className="text-sm font-mono text-zinc-300 mb-2 break-all">
+                    {info.value}
+                  </p>
+
+                  <p className="text-xs text-zinc-400 leading-relaxed">
+                    {info.description}
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-3 border-t border-zinc-800/60 flex items-center justify-between">
+                  <span className="font-mono text-xs font-semibold text-emerald-400 flex items-center gap-1 group-hover:underline">
+                    {info.action}
+                  </span>
+                  <ArrowUpRight size={14} className="text-zinc-500 group-hover:text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </div>
+              </a>
+            );
+          })}
+        </div>
+
+        {/* Social Console Matrix */}
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 sm:p-8 text-center backdrop-blur-md">
+          <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+            Redes Sociais & Perfis de Desenvolvedor
+          </h3>
+          <p className="text-xs sm:text-sm text-zinc-400 mb-6 font-mono">
+            // Siga o código, conexões profissionais e atualizações de projetos
+          </p>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {socialLinks.map((social, index) => {
+              const Icon = social.icon;
               return (
                 <a
                   key={index}
-                  href={info.link}
-                  target={info.link.startsWith('http') ? '_blank' : undefined}
-                  rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="group flex h-full flex-col rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800"
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-zinc-600 hover:bg-zinc-800 text-zinc-300 hover:text-white transition-all duration-200 flex flex-col items-center justify-center gap-2 group"
                 >
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-purple-600">
-                    <Icon size={22} className="text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                    {info.title}
-                  </h3>
-                  <p className="mt-1 text-base font-medium text-gray-700 dark:text-gray-200 break-all">
-                    {info.value}
-                  </p>
-                  <p className="mt-3 flex-1 text-sm text-gray-600 dark:text-gray-300">
-                    {info.description}
-                  </p>
-                  <span className="mt-4 text-sm font-semibold text-blue-600 transition-colors group-hover:text-purple-600 dark:text-blue-400">
-                    {info.action}
+                  <Icon size={18} className="text-zinc-400 group-hover:text-emerald-400 transition-colors" />
+                  <span className="text-xs font-medium text-white">{social.label}</span>
+                  <span className="font-mono text-[10px] text-zinc-500 truncate max-w-full">
+                    {social.handle}
                   </span>
                 </a>
               );
             })}
           </div>
-
-          <div className="rounded-lg border border-gray-200 bg-white p-6 text-center shadow-sm dark:border-gray-700 dark:bg-gray-800">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">
-              Redes sociais
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Acompanhe meu trabalho e fale comigo pelos canais abaixo.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className={`w-12 h-12 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg flex items-center justify-center transition-all duration-200 ${social.color} hover:scale-110`}
-                  >
-                    <Icon size={20} />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
         </div>
+
+        {/* Footer Credit */}
+        <div className="mt-16 text-center text-xs font-mono text-zinc-600">
+          <p>© {new Date().getFullYear()} Raphael Calixto. Built with Next/React, TypeScript & Tailwind. 0% AI Slop Gradients.</p>
+        </div>
+
       </div>
     </section>
   );

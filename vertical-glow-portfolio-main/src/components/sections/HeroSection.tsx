@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { ChevronDown, Github, Linkedin, Mail, Download, Terminal, ArrowRight, Code2 } from 'lucide-react';
 
 const HeroSection = () => {
   const [displayedText, setDisplayedText] = useState('');
   const fullText = 'Olá, sou Raphael e sou um Desenvolvedor Fullstack';
-  const starsRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     let index = 0;
     const timer = setInterval(() => {
@@ -15,193 +15,201 @@ const HeroSection = () => {
       } else {
         clearInterval(timer);
       }
-    }, 50);
+    }, 45);
 
     return () => clearInterval(timer);
   }, []);
 
-  // Criar estrelas interativas
-  useEffect(() => {
-    const createStars = () => {
-      if (!starsRef.current) return;
-      
-      const starsContainer = starsRef.current;
-      const numberOfStars = 80; // Aumentei o número de estrelas
-      
-      // Limpar estrelas existentes
-      starsContainer.innerHTML = '';
-      
-      for (let i = 0; i < numberOfStars; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        const size = Math.random() * 3 + 2; // Estrelas maiores (2-5px)
-        const opacity = Math.random() * 0.6 + 0.4; // Mais opacas (0.4-1.0)
-        
-        star.style.cssText = `
-          position: absolute;
-          width: ${size}px;
-          height: ${size}px;
-          background: currentColor;
-          border-radius: 50%;
-          opacity: ${opacity};
-          left: ${Math.random() * 100}%;
-          top: ${Math.random() * 100}%;
-          transition: all 0.3s ease;
-          pointer-events: none;
-          box-shadow: 0 0 ${size * 2}px currentColor;
-        `;
-        starsContainer.appendChild(star);
-      }
-    };
-
-    createStars();
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!starsRef.current) return;
-      
-      const stars = starsRef.current.querySelectorAll('.star');
-      const rect = starsRef.current.getBoundingClientRect();
-      const mouseX = ((e.clientX - rect.left) / rect.width) * 100;
-      const mouseY = ((e.clientY - rect.top) / rect.height) * 100;
-      
-      stars.forEach((star, index) => {
-        const element = star as HTMLElement;
-        const starX = parseFloat(element.style.left);
-        const starY = parseFloat(element.style.top);
-        
-        const distance = Math.sqrt(
-          Math.pow(mouseX - starX, 2) + Math.pow(mouseY - starY, 2)
-        );
-        
-        if (distance < 25) { // Aumentei a área de interação
-          const angle = Math.atan2(starY - mouseY, starX - mouseX);
-          const moveDistance = (25 - distance) * 0.8; // Mais movimento
-          const scale = 1 + (25 - distance) * 0.08; // Maior escala
-          
-          element.style.transform = `translate(${Math.cos(angle) * moveDistance}px, ${Math.sin(angle) * moveDistance}px) scale(${scale})`;
-          element.style.opacity = String(Math.min(1, 0.4 + (25 - distance) * 0.06));
-          element.style.boxShadow = `0 0 ${(25 - distance) * 0.5}px currentColor`;
-        } else {
-          element.style.transform = 'translate(0, 0) scale(1)';
-          element.style.opacity = String(Math.random() * 0.6 + 0.4);
-          element.style.boxShadow = '0 0 4px currentColor';
-        }
-      });
-    };
-
-    // Animação automática das estrelas
-    const animateStars = () => {
-      if (!starsRef.current) return;
-      
-      const stars = starsRef.current.querySelectorAll('.star');
-      stars.forEach((star) => {
-        const element = star as HTMLElement;
-        if (!element.style.transform.includes('translate')) {
-          const currentOpacity = parseFloat(element.style.opacity);
-          const newOpacity = Math.random() * 0.6 + 0.4;
-          element.style.opacity = String(Math.abs(currentOpacity - newOpacity) < 0.1 ? newOpacity : currentOpacity + (newOpacity - currentOpacity) * 0.1);
-        }
-      });
-    };
-
-    const animationInterval = setInterval(animateStars, 2000);
-
-    const container = starsRef.current;
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
-      
-      return () => {
-        container.removeEventListener('mousemove', handleMouseMove);
-        clearInterval(animationInterval);
-      };
-    }
-
-    return () => clearInterval(animationInterval);
-  }, []);
-
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
-      {/* Interactive Stars Background */}
+    <section 
+      id="home" 
+      className="min-h-screen flex items-center justify-center bg-zinc-950 text-white relative overflow-hidden pt-24 pb-16"
+    >
+      {/* Background Engineering Grid (Dot Matrix) */}
       <div 
-        ref={starsRef}
-        className="absolute inset-0 opacity-70 dark:opacity-80 text-gray-700 dark:text-blue-400"
-        style={{ background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,50,0.1) 100%)' }}
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#52525b 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
       />
-      
-      {/* Background Gradient Effects */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-3xl"></div>
-      
-      <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-        <div className="mb-6 sm:mb-8">
-          <div className="w-36 h-36 sm:w-44 sm:h-44 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1 shadow-2xl relative">
-            {/* Animação da borda girando */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-600 to-blue-500 animate-spin"></div>
-            <div className="relative w-full h-full rounded-full bg-white dark:bg-gray-800 flex items-center justify-center">
+
+      {/* Subtle Radial Ambient Lighting (Monochrome Slate / Emerald) */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/[0.04] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/[0.03] rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 text-center relative z-10 max-w-5xl">
+        
+        {/* Terminal Status Pill */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-zinc-800 bg-zinc-900/90 backdrop-blur-md mb-8 shadow-sm"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span className="text-zinc-400 font-mono text-xs">system.status</span>
+          <span className="text-zinc-600 font-mono text-xs">::</span>
+          <span className="text-emerald-400 font-mono text-xs font-medium">available_for_projects</span>
+          <span className="hidden sm:inline text-zinc-600 font-mono text-xs">|</span>
+          <span className="hidden sm:inline text-zinc-400 font-mono text-xs">RJ, Brasil</span>
+        </motion.div>
+
+        {/* Developer Avatar Frame */}
+        <motion.div 
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-8"
+        >
+          <div className="relative w-36 h-36 sm:w-44 sm:h-44 mx-auto group">
+            {/* Corner Tech Ticks */}
+            <div className="absolute -top-1.5 -left-1.5 w-3 h-3 border-t-2 border-l-2 border-emerald-500/80 transition-colors group-hover:border-emerald-400" />
+            <div className="absolute -top-1.5 -right-1.5 w-3 h-3 border-t-2 border-r-2 border-emerald-500/80 transition-colors group-hover:border-emerald-400" />
+            <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-b-2 border-l-2 border-emerald-500/80 transition-colors group-hover:border-emerald-400" />
+            <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-b-2 border-r-2 border-emerald-500/80 transition-colors group-hover:border-emerald-400" />
+
+            {/* Container with crisp border */}
+            <div className="w-full h-full rounded-2xl p-1 bg-zinc-900 border border-zinc-800 shadow-2xl transition-all duration-300 group-hover:border-zinc-700 overflow-hidden">
               <img 
                 src="https://i.imgur.com/6EnYG8l.jpeg" 
-                alt="Perfil" 
-                className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover transition-all duration-300 hover:filter hover:grayscale"
+                alt="Raphael Calixto" 
+                className="w-full h-full rounded-xl object-cover grayscale contrast-125 transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
               />
             </div>
+
+            {/* Monospace Tech Badge */}
+            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-md bg-zinc-900 border border-zinc-700/80 text-[11px] font-mono text-zinc-300 shadow-lg whitespace-nowrap flex items-center gap-1.5">
+              <Code2 size={12} className="text-emerald-400" />
+              <span>dev.fullstack</span>
+            </div>
           </div>
-        </div>
+        </motion.div>
         
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-4 sm:mb-6 min-h-[120px] sm:min-h-[200px] flex items-center justify-center px-2">
-          <span className="text-gray-900 dark:text-white leading-tight">
-            {displayedText}
-            <span className="inline-block w-[3px] sm:w-[4px] h-[0.85em] ml-2 bg-gray-900 dark:bg-white animate-pulse align-middle rounded-full"></span>
-          </span>
-        </h1>
+        {/* Terminal Command Line Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-4 sm:mb-6"
+        >
+          <div className="inline-flex items-center gap-2 text-zinc-500 font-mono text-xs sm:text-sm mb-2">
+            <span className="text-emerald-500 font-semibold">$</span>
+            <span>whoami --summary</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white min-h-[90px] sm:min-h-[140px] flex items-center justify-center px-2">
+            <span className="leading-tight">
+              {displayedText}
+              <span className="inline-block w-2.5 sm:w-3 h-[0.85em] ml-2 bg-emerald-400 align-middle animate-pulse" />
+            </span>
+          </h1>
+        </motion.div>
         
-        <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
-          Desenvolvedor Full Stack apaixonado por criar experiências digitais incríveis. 
-          Especializado em React, Node.js e tecnologias modernas.
-        </p>
+        {/* Engineering Subtitle */}
+        <motion.p 
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-base sm:text-lg lg:text-xl text-zinc-400 mb-8 max-w-3xl mx-auto leading-relaxed px-4 font-normal"
+        >
+          Construindo aplicações web escaláveis, microsserviços resilientes e experiências digitais de alta performance. 
+          Especialista no ecossistema <span className="text-zinc-200 font-semibold">React / Next.js</span>, <span className="text-zinc-200 font-semibold">TypeScript</span>, <span className="text-zinc-200 font-semibold">Node.js</span> e <span className="text-zinc-200 font-semibold">Docker</span>.
+        </motion.p>
         
-        <div className="flex items-center justify-center space-x-4 sm:space-x-6 mb-8 sm:mb-12">
+        {/* Tech Stack Pills in Monospace */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex flex-wrap justify-center gap-2 mb-8 max-w-2xl mx-auto font-mono text-xs"
+        >
+          {['Next.js 14+', 'TypeScript', 'Node.js', 'PostgreSQL', 'Docker', 'RESTful APIs', 'Tailwind CSS'].map((tech) => (
+            <span 
+              key={tech}
+              className="px-2.5 py-1 rounded bg-zinc-900/80 border border-zinc-800 text-zinc-400 hover:text-zinc-200 hover:border-zinc-700 transition-colors"
+            >
+              {tech}
+            </span>
+          ))}
+        </motion.div>
+
+        {/* Social Terminal Links */}
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45 }}
+          className="flex items-center justify-center space-x-3 sm:space-x-4 mb-10"
+        >
           <a 
             href="https://github.com/RaphaCalixto" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-900 dark:bg-white dark:text-gray-900 text-white rounded-full flex items-center justify-center hover:scale-110 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-all duration-200 shadow-lg"
+            aria-label="GitHub"
+            className="w-11 h-11 bg-zinc-900 border border-zinc-800 text-zinc-300 rounded-xl flex items-center justify-center hover:scale-105 hover:border-zinc-600 hover:text-white hover:bg-zinc-800 transition-all duration-200 shadow-sm"
           >
-            <Github size={18} className="sm:w-5 sm:h-5" />
+            <Github size={18} />
           </a>
           <a 
             href="https://www.linkedin.com/in/raphael-roberto-calixto-10a204234/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:scale-110 hover:bg-purple-600 transition-all duration-200 shadow-lg"
+            aria-label="LinkedIn"
+            className="w-11 h-11 bg-zinc-900 border border-zinc-800 text-zinc-300 rounded-xl flex items-center justify-center hover:scale-105 hover:border-zinc-600 hover:text-white hover:bg-zinc-800 transition-all duration-200 shadow-sm"
           >
-            <Linkedin size={18} className="sm:w-5 sm:h-5" />
+            <Linkedin size={18} />
           </a>
           <a 
             href="mailto:raphacalixto10@gmail.com"
-            className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-600 text-white rounded-full flex items-center justify-center hover:scale-110 hover:bg-green-600 transition-all duration-200 shadow-lg"
+            aria-label="Email"
+            className="w-11 h-11 bg-zinc-900 border border-zinc-800 text-zinc-300 rounded-xl flex items-center justify-center hover:scale-105 hover:border-zinc-600 hover:text-white hover:bg-zinc-800 transition-all duration-200 shadow-sm"
           >
-            <Mail size={18} className="sm:w-5 sm:h-5" />
+            <Mail size={18} />
           </a>
-        </div>
+        </motion.div>
         
-        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-        <button 
-          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-          className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 inline-flex items-center space-x-2 text-sm sm:text-base"
+        {/* Primary Action Buttons */}
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <span>Conheça meu trabalho</span>
-          <ChevronDown size={18} className="sm:w-5 sm:h-5" />
-        </button>
+          <button 
+            onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+            className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-zinc-100 text-zinc-950 font-semibold text-sm hover:bg-white transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-lg shadow-white/5 hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <span>Explorar Projetos</span>
+            <ArrowRight size={16} className="text-zinc-950" />
+          </button>
           
+          <button 
+            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+            className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300 font-medium text-sm hover:bg-zinc-800 hover:text-white hover:border-zinc-700 transition-all duration-200 inline-flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <Terminal size={15} className="text-zinc-400" />
+            <span>Sobre Mim</span>
+          </button>
+
           <a 
             href="/cv.pdf" 
             download
-            className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 inline-flex items-center space-x-2 text-sm sm:text-base"
+            className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-zinc-900/60 border border-zinc-800/80 text-zinc-400 font-mono text-xs hover:text-zinc-200 hover:border-zinc-700 hover:bg-zinc-800/80 transition-all duration-200 inline-flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
           >
-            <span>CV</span>
-            <Download size={18} className="sm:w-5 sm:h-5" />
+            <Download size={14} className="text-emerald-400" />
+            <span>[CV.PDF]</span>
           </a>
-        </div>
+        </motion.div>
+      </div>
+
+      {/* Bottom Scroll Indicator */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center text-zinc-600 hover:text-zinc-400 transition-colors cursor-pointer"
+           onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>
+        <span className="font-mono text-[10px] uppercase tracking-widest mb-1 text-zinc-500">scroll</span>
+        <ChevronDown size={14} className="animate-bounce text-zinc-500" />
       </div>
     </section>
   );

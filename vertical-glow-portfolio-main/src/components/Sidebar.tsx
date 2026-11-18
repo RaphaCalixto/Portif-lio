@@ -1,7 +1,7 @@
-
 import React from 'react';
-import { Home, User, Briefcase, FolderOpen, Mail, Sun, Moon } from 'lucide-react';
+import { Home, User, Briefcase, FolderOpen, Mail, Sun, Moon, Terminal } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
+import { motion } from 'framer-motion';
 
 interface SidebarProps {
   activeSection: string;
@@ -15,7 +15,7 @@ const Sidebar = ({ activeSection, onSectionClick }: SidebarProps) => {
     { id: 'home', label: 'Início', icon: Home },
     { id: 'about', label: 'Sobre', icon: User },
     { id: 'services', label: 'Serviços', icon: Briefcase },
-    { id: 'portfolio', label: 'Portfólio', icon: FolderOpen },
+    { id: 'portfolio', label: 'Projetos', icon: FolderOpen },
     { id: 'contact', label: 'Contato', icon: Mail },
   ];
 
@@ -28,18 +28,28 @@ const Sidebar = ({ activeSection, onSectionClick }: SidebarProps) => {
   };
 
   return (
-    <div className="fixed left-1/2 top-4 z-50 flex w-[calc(100%-1rem)] max-w-5xl -translate-x-1/2 items-center gap-2 rounded-full border border-gray-200 bg-white/90 px-3 py-2 shadow-xl backdrop-blur-md dark:border-gray-700 dark:bg-gray-900/90">
+    <header className="fixed left-1/2 top-4 z-50 flex w-[calc(100%-1.5rem)] max-w-4xl -translate-x-1/2 items-center justify-between gap-2 rounded-2xl border border-zinc-800 bg-zinc-950/85 px-3 py-2 shadow-2xl backdrop-blur-xl">
+      {/* Brand Dev Tag */}
       <div className="flex shrink-0 items-center">
-        <div className="flex items-center justify-center">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-600">
-            <span className="text-white font-bold text-lg">R</span>
+        <div 
+          onClick={() => scrollToSection('home')}
+          className="flex items-center cursor-pointer group"
+        >
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-900 border border-zinc-700/80 text-white font-mono font-bold text-sm group-hover:border-emerald-500/50 transition-colors">
+            R
           </div>
-          <span className="hidden lg:block ml-3 text-base font-bold text-gray-900 dark:text-white">
-            Raphael Calixto
-          </span>
+          <div className="hidden sm:flex flex-col ml-2.5">
+            <span className="text-sm font-bold text-white leading-tight">
+              Raphael Calixto
+            </span>
+            <span className="font-mono text-[10px] text-emerald-400">
+              dev.fullstack
+            </span>
+          </div>
         </div>
       </div>
 
+      {/* Nav Menu Items */}
       <nav className="flex-1 overflow-x-auto">
         <ul className="flex items-center justify-center gap-1">
           {menuItems.map((item) => {
@@ -47,23 +57,27 @@ const Sidebar = ({ activeSection, onSectionClick }: SidebarProps) => {
             const isActive = activeSection === item.id;
             
             return (
-              <li key={item.id}>
+              <li key={item.id} className="relative">
                 <button
                   onClick={() => scrollToSection(item.id)}
-                  className={`flex items-center whitespace-nowrap rounded-full px-3 py-3 transition-all duration-200 group ${
+                  className={`relative flex items-center whitespace-nowrap rounded-xl px-3 py-2 text-xs sm:text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
-                      : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white'
+                      ? 'text-white'
+                      : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/60'
                   }`}
                 >
-                  <Icon 
-                    size={20} 
-                    className={`${isActive ? 'text-white' : ''} lg:mr-2`}
-                  />
-                  <span className="hidden lg:block font-medium">{item.label}</span>
                   {isActive && (
-                    <div className="ml-2 w-2 h-2 bg-white rounded-full hidden lg:block"></div>
+                    <motion.div
+                      layoutId="activeNavIndicator"
+                      className="absolute inset-0 rounded-xl bg-zinc-800 border border-zinc-700 shadow-sm"
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
                   )}
+                  <Icon 
+                    size={16} 
+                    className={`relative z-10 ${isActive ? 'text-emerald-400' : 'text-zinc-400'} sm:mr-1.5`}
+                  />
+                  <span className="relative z-10 hidden sm:inline">{item.label}</span>
                 </button>
               </li>
             );
@@ -71,18 +85,17 @@ const Sidebar = ({ activeSection, onSectionClick }: SidebarProps) => {
         </ul>
       </nav>
 
-      <div className="shrink-0">
+      {/* Theme Toggle (or Status Terminal) */}
+      <div className="shrink-0 flex items-center">
         <button
           onClick={toggleTheme}
-          className="flex items-center justify-center rounded-full px-3 py-3 text-gray-600 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
+          aria-label="Toggle theme"
+          className="flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-400 hover:text-white hover:border-zinc-700 transition-all duration-200"
         >
-          {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-          <span className="hidden lg:block ml-2 font-medium">
-            {theme === 'light' ? 'Modo Escuro' : 'Modo Claro'}
-          </span>
+          {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
         </button>
       </div>
-    </div>
+    </header>
   );
 };
 

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from '../components/ThemeProvider';
 import Sidebar from '../components/Sidebar';
@@ -37,7 +36,7 @@ const Index = () => {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="min-h-screen bg-zinc-950 text-white selection:bg-emerald-500/30 selection:text-emerald-200 font-sans">
         <Sidebar activeSection={activeSection} onSectionClick={setActiveSection} />
         <ScrollToTop />
         

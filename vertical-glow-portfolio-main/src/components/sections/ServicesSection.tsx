@@ -1,121 +1,136 @@
-
 import React from 'react';
-import { Globe, Smartphone, Server, Palette, Database, Shield } from 'lucide-react';
+import { Globe, Smartphone, Server, Palette, Database, Shield, Terminal, ArrowRight, Check } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
     {
       icon: Globe,
-      title: 'Desenvolvimento Web',
-      description: 'Criação de websites e aplicações web responsivas usando tecnologias modernas como React, Next.js e TypeScript.',
-      features: ['Sites Responsivos', 'SPAs', 'Progressive Web Apps', 'E-commerce']
+      code: 'svc_01',
+      title: 'Desenvolvimento Web Full Stack',
+      description: 'Criação de aplicações web robustas, responsivas e de alta performance utilizando ecossistemas modernos (React, Next.js, TypeScript).',
+      features: ['Aplicações SPA & SSR', 'Progressive Web Apps (PWA)', 'Otimização Core Web Vitals', 'Integrações de E-commerce']
     },
     {
       icon: Smartphone,
+      code: 'svc_02',
       title: 'Aplicações Mobile',
-      description: 'Desenvolvimento de aplicativos mobile nativos e híbridos para iOS e Android.',
-      features: ['React Native', 'Flutter', 'Apps Híbridos', 'UI/UX Mobile']
+      description: 'Desenvolvimento de aplicativos multiplataforma para iOS e Android com interfaces fluidas e integração com APIs nativas.',
+      features: ['React Native & Expo', 'UI/UX Responsivo', 'Sincronização Offline', 'Publicação nas Lojas']
     },
     {
       icon: Server,
-      title: 'Backend & APIs',
-      description: 'Desenvolvimento de APIs RESTful e GraphQL, microserviços e arquiteturas escaláveis.',
-      features: ['APIs REST', 'GraphQL', 'Microserviços', 'Cloud Computing']
+      code: 'svc_03',
+      title: 'Backend & Arquitetura de APIs',
+      description: 'Projeção e implementação de APIs RESTful escaláveis, microsserviços seguros e regras de negócio com Node.js, PHP e Python.',
+      features: ['APIs RESTful & GraphQL', 'Autenticação JWT / OAuth', 'Webhooks & Background Jobs', 'Automação n8n & Node-RED']
     },
     {
       icon: Database,
-      title: 'Banco de Dados',
-      description: 'Design e otimização de bancos de dados relacionais e NoSQL para máxima performance.',
-      features: ['PostgreSQL', 'MongoDB', 'Redis', 'Otimização']
+      code: 'svc_04',
+      title: 'Bancos de Dados & Modelagem',
+      description: 'Design relacional eficiente, normalização de esquemas e tuning de performance em bancos relacionais e NoSQL.',
+      features: ['PostgreSQL & MySQL', 'Oracle Database', 'Consultas & Indexação', 'Migrations & Data Integrity']
     },
     {
       icon: Palette,
-      title: 'UI/UX Design',
-      description: 'Criação de interfaces intuitivas e experiências de usuário excepcionais.',
-      features: ['Design System', 'Prototipagem', 'Figma', 'Testes de Usabilidade']
+      code: 'svc_05',
+      title: 'Design Systems & UI Engineering',
+      description: 'Desenvolvimento de interfaces modernas e consistentes com design tokens, acessibilidade e microinterações propositais.',
+      features: ['Shadcn UI & Radix Primitives', 'Tailwind CSS Avançado', 'Framer Motion & GSAP', 'Design Responsivo Pixel-Perfect']
     },
     {
       icon: Shield,
-      title: 'DevOps & Segurança',
-      description: 'Implementação de pipelines CI/CD, containerização e práticas de segurança.',
-      features: ['Docker', 'CI/CD', 'AWS/Azure', 'Segurança Web']
+      code: 'svc_06',
+      title: 'DevOps, CI/CD & Pentest',
+      description: 'Conteinerização de ambientes, automação de deploys contínuos e análise de vulnerabilidades de segurança em aplicações web.',
+      features: ['Docker & Docker Compose', 'Pipelines de CI/CD', 'Deploy Cloud (AWS, Vercel)', 'Análise de Pentest & Hardening']
     }
   ];
 
   return (
-    <section id="services" className="py-20 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-6">
-            Meus Serviços
+    <section id="services" className="py-24 bg-zinc-950 text-white relative border-t border-zinc-900">
+      {/* Background Engineering Pattern */}
+      <div 
+        className="absolute inset-0 opacity-15 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#3f3f46 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-6xl">
+        
+        {/* Section Header */}
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 font-mono text-xs mb-4">
+            <Terminal size={13} />
+            <span>services.manifest --all</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
+            Serviços & Soluções Técnicas
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Ofereço soluções completas para transformar suas ideias em realidade digital
+          <p className="text-base sm:text-lg text-zinc-400 font-normal leading-relaxed">
+            Engenharia de software ponta a ponta com rigor técnico, garantindo produtos performáticos, seguros e prontos para escala.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <div 
                 key={index}
-                className="group bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 border border-gray-200 dark:border-gray-700 relative overflow-hidden"
-                style={{
-                  animationDelay: `${index * 100}ms`
-                }}
+                className="group bg-zinc-900/70 border border-zinc-800 hover:border-zinc-700 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1.5 shadow-xl hover:shadow-2xl flex flex-col justify-between"
               >
-                {/* Efeito de brilho no hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                {/* Ícone animado */}
-                <div className="relative w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg group-hover:shadow-xl">
-                  <Icon size={28} className="text-white group-hover:scale-110 transition-transform duration-300" />
-                  
-                  {/* Efeito de pulso */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-50 group-hover:animate-pulse transition-opacity duration-300"></div>
-                </div>
-                
-                <h3 className="relative text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                  {service.title}
-                </h3>
-                
-                <p className="relative text-gray-600 dark:text-gray-300 mb-6 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">
-                  {service.description}
-                </p>
-                
-                <ul className="relative space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <li 
-                      key={featureIndex}
-                      className="flex items-center text-sm text-gray-500 dark:text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-all duration-300"
-                      style={{
-                        animationDelay: `${(index * 100) + (featureIndex * 50)}ms`
-                      }}
-                    >
-                      <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mr-3 group-hover:scale-125 transition-transform duration-300"></div>
-                      <span className="group-hover:translate-x-1 transition-transform duration-300">
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  {/* Top Bar with Code and Icon */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center text-zinc-300 group-hover:text-emerald-400 group-hover:border-emerald-500/40 transition-colors">
+                      <Icon size={22} />
+                    </div>
+                    <span className="font-mono text-[11px] text-zinc-500">
+                      [{service.code}]
+                    </span>
+                  </div>
 
-                {/* Borda animada */}
-                <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-600 transition-all duration-500"></div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-emerald-300 transition-colors">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-zinc-400 mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+
+                {/* Features List */}
+                <div className="pt-4 border-t border-zinc-800/60">
+                  <ul className="space-y-2">
+                    {service.features.map((feature, fIndex) => (
+                      <li key={fIndex} className="flex items-center text-xs text-zinc-400 gap-2">
+                        <Check size={13} className="text-emerald-400 shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             );
           })}
         </div>
 
-        <div className="text-center mt-12">
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
           <button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 hover:from-blue-600 hover:to-purple-700"
+            className="px-8 py-4 rounded-xl bg-zinc-100 hover:bg-white text-zinc-950 font-semibold text-sm transition-all duration-200 inline-flex items-center gap-2 shadow-lg shadow-white/5 hover:scale-[1.02] active:scale-[0.98]"
           >
-            Solicitar Orçamento
+            <span>Iniciar um Projeto</span>
+            <ArrowRight size={16} className="text-zinc-950" />
           </button>
         </div>
+
       </div>
     </section>
   );
