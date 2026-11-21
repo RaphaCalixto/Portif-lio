@@ -18,5 +18,5 @@ Integrar os 3 novos projetos ao portfólio preservando a estética Developer Con
 
 ### Phase 3: Verificação de Build e Deploy Git
 - [x] Executar `npm.cmd run build` em `vertical-glow-portfolio-main`.
-- [ ] Realizar git commit com autor `RaphaCalixto <NaoDrezzy@outlook.com>` e push para `origin master`.
-**Status:** in_progress
+- [x] Realizar git commit com autor `RaphaCalixto <NaoDrezzy@outlook.com>` e push para `origin master`.
+**Status:** complete
