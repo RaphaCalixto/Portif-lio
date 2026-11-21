@@ -8,6 +8,39 @@ const PortfolioSection = () => {
   const projects = [
     {
       id: 1,
+      title: 'Jardim Secreto • Beco do Café Artesanal',
+      slug: 'jardim-secreto',
+      description: 'Experiência web sensorial e imersiva para cafeteria artesanal ("O Beco Oculto"), com atmosfera intimista, iluminação dinâmica, narrativa visual envolvente e cardápio interativo.',
+      image: '/projects/jardim-secreto.jpg',
+      categories: ['web'],
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
+      liveUrl: 'https://cafeteria-theta-smoky.vercel.app/',
+      githubUrl: 'https://github.com/RaphaCalixto/Cafeteria'
+    },
+    {
+      id: 2,
+      title: 'Valença & Advogados — Family Office',
+      slug: 'valenca-advogados',
+      description: 'Plataforma jurídica de alta precisão para banca de advocacia estratégica e family office, com apresentação de contencioso de alto risco, estruturação societária e simulador de diagnóstico.',
+      image: '/projects/valenca-advogados.jpg',
+      categories: ['web'],
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
+      liveUrl: 'https://advocacia-sand-two.vercel.app/',
+      githubUrl: 'https://github.com/RaphaCalixto/Advocacia'
+    },
+    {
+      id: 3,
+      title: 'Cafeteria Portuguesa • Delta Cafés',
+      slug: 'cafeteria-portuguesa',
+      description: 'Website imersivo para a tradicional marca portuguesa Delta Cafés, explorando a cultura do café, catálogo de produtos, soluções de negócio, sustentabilidade, jornal e quiz interativo.',
+      image: '/projects/cafeteria-portuguesa.jpg',
+      categories: ['web'],
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
+      liveUrl: 'https://cafeteria-portuguesa.vercel.app/',
+      githubUrl: 'https://github.com/RaphaCalixto/Cafeteria-Portuguesa'
+    },
+    {
+      id: 4,
       title: 'Fruity — Fruit Cider',
       slug: 'fruity-cider',
       description: 'Landing page interativa e dinâmica para marca de sidra de frutas artesanal (Green Pear), com animações fluidas, efeitos de scroll e apresentação visual imersiva do produto.',
@@ -18,7 +51,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Frutas-'
     },
     {
-      id: 2,
+      id: 5,
       title: 'Scarlette Radiance — wepink',
       slug: 'wepink-scarlette',
       description: 'Experiência web imersiva em scrollytelling de alta fidelidade para o perfume Scarlette Radiance da wepink, com sequência cinematográfica em canvas renderizada por scroll.',
@@ -29,7 +62,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Wepink'
     },
     {
-      id: 3,
+      id: 6,
       title: 'Neymar Jr · Seleção Brasileira',
       slug: 'neymar-jr',
       description: 'Website editorial e tributo interativo à carreira de Neymar Jr na Seleção Brasileira e no Santos FC, com estatísticas de jogos e gols, biografia, títulos e galeria visual.',
@@ -40,7 +73,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Neymar'
     },
     {
-      id: 4,
+      id: 7,
       title: 'AERO LUXURY — Aviação Executiva',
       slug: 'aero-luxury',
       description: 'Plataforma premium e cinematográfica para fretamento de jatos executivos e aviação privada de alta precisão, desenvolvida com animações avançadas em GSAP, ScrollTrigger e design de alto luxo.',
@@ -51,7 +84,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Avia-o'
     },
     {
-      id: 5,
+      id: 8,
       title: 'CineRapha',
       slug: 'cinerapha-desktop',
       description: 'Plataforma desktop e streaming pessoal estilo Netflix para organização e reprodução de filmes, séries e animes direto do disco local, com escaneamento automático de pastas e player integrado.',
@@ -62,7 +95,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/CineRapha'
     },
     {
-      id: 6,
+      id: 9,
       title: 'M TEC ELETRIC',
       slug: 'm-tec-eletric',
       description: 'Landing page de alta conversão para formação completa em Eletricista Predial, Residencial e Refrigeração, com apresentação de módulos, bônus, oferta promocional e suporte via WhatsApp.',
@@ -73,7 +106,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Vendedor-de-Curso'
     },
     {
-      id: 7,
+      id: 10,
       title: 'Psicóloga Vera Miranda',
       slug: 'psicologa-vera-miranda',
       description: 'Landing page profissional para psicoterapia clínica humanizada (online e presencial), com autoavaliação de sintomas, especialidades e agendamento via WhatsApp.',
@@ -84,7 +117,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Psicologa'
     },
     {
-      id: 8,
+      id: 11,
       title: 'NutriPlan Pro',
       slug: 'nutriplan-pro-saas',
       description: 'Sistema completo de gestão nutricional e clínica para nutricionistas (SaaS). Conta com prontuário eletrônico de pacientes, montador inteligente de dietas com tabela TACO & API, agenda de consultas, tabela de alimentos e suporte a PWA.',
@@ -95,7 +128,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Nutricionista-Dashboard'
     },
     {
-      id: 9,
+      id: 12,
       title: 'Clima Global 3D',
       slug: 'clima-global-3d',
       description: 'Dashboard interativo de clima mundial em tempo real com visualização 3D de globo terrestre, dados meteorológicos ao vivo e busca dinâmica.',
@@ -106,7 +139,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Clima-mundial-tempo-real'
     },
     {
-      id: 10,
+      id: 13,
       title: 'Miyazaki Hayao',
       slug: 'miyazaki-hayao',
       description: 'Experiência web imersiva dedicada à vida, trajetória e obras-primas de Hayao Miyazaki e do Studio Ghibli, com animações e galeria de arte.',
@@ -117,7 +150,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Miyazaki-Hayao'
     },
     {
-      id: 11,
+      id: 14,
       title: 'Beautiful',
       slug: 'beautiful-skincare',
       description: 'E-commerce e vitrine de cosméticos e skincare de luxo, com IA de tons, cards flutuantes interativos e animações de alta performance.',
@@ -128,7 +161,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Beautiful'
     },
     {
-      id: 12,
+      id: 15,
       title: 'NEXUS',
       slug: 'nexus-3d',
       description: 'Plataforma interativa futurista com transições fluidas entre seções e efeitos visuais 3D de alta fidelidade.',
@@ -139,7 +172,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/NEXUS'
     },
     {
-      id: 13,
+      id: 16,
       title: 'PAYROT',
       slug: 'payrot-fintech',
       description: 'Plataforma global de pagamentos e transferências internacionais sem fronteiras, com interface moderna e recursos de segurança.',
@@ -150,7 +183,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/PAYROT'
     },
     {
-      id: 14,
+      id: 17,
       title: 'Nutri — Dra. Laís Leal',
       slug: 'nutri-lais-leal',
       description: 'Landing page premium para consultoria nutricional clínica e esportiva, com apresentação de metodologia, planos e agendamento.',
@@ -161,7 +194,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Nutri'
     },
     {
-      id: 15,
+      id: 18,
       title: 'Advogada Brenda Pitner',
       slug: 'brenda-pitner-adv',
       description: 'Website profissional para advocacia especializada em Propriedade Intelectual, Registro de Marcas e Patentes no INPI.',
@@ -172,7 +205,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Advogada'
     },
     {
-      id: 16,
+      id: 19,
       title: 'Everest',
       slug: 'everest-climatizacao',
       description: 'Uma aplicação web intuitiva, projetada para ajudar os usuários a gerenciar tarefas e encontrar momentos de calma, combinando ferramentas de produtividade com recursos de relaxamento.',
@@ -183,7 +216,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Dashboard-Relaxamento'
     },
     {
-      id: 17,
+      id: 20,
       title: 'Poupe Bem',
       slug: 'poupe-bem',
       description: 'Sistema moderno para controle financeiro pessoal, permitindo o acompanhamento de receitas, despesas, metas e relatórios de forma simples e intuitiva.',
@@ -194,7 +227,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/poupe-bem'
     },
     {
-      id: 18,
+      id: 21,
       title: 'Inovative',
       slug: 'inovative-spa',
       description: 'Uma landing page elegante e responsiva para um SPA, desenvolvida para proporcionar uma experiência de usuário relaxante e informativa, com foco em design moderno e performance.',
@@ -205,7 +238,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/Glamourous-SPA'
     },
     {
-      id: 19,
+      id: 22,
       title: 'Elle et Lui',
       slug: 'elle-et-lui',
       description: 'E-commerce de roupas masculinas com foco em moda, experiência do usuário e performance.',
@@ -216,7 +249,7 @@ const PortfolioSection = () => {
       githubUrl: '#'
     },
     {
-      id: 20,
+      id: 23,
       title: 'Hotel Rio de Janeiro',
       slug: 'hotel-rio',
       description: 'Projeto de um hotel para o Rio de Janeiro com interface moderna e reservas online.',
@@ -227,7 +260,7 @@ const PortfolioSection = () => {
       githubUrl: 'https://github.com/RaphaCalixto/RiodeJaneiro'
     },
     {
-      id: 21,
+      id: 24,
       title: 'Inovative Automação',
       slug: 'inovative-automacao',
       description: 'Empresa especializada em manutenção de Estação de Recarga, Inversor de Frequência e Painéis Solares.',
